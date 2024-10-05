@@ -1,0 +1,20 @@
+task bar {
+    doLast {
+        println("test2")
+    }
+}
+
+task foo(dependsOn: "bar") {
+    doFirst {
+        println("test1")
+    }
+}
+
+task readFile {
+    doFirst {
+        File file = file(new File("foo.txt"))
+        println(file)
+        println(file.name)
+        println(file.text)
+    }
+}
