@@ -11,10 +11,16 @@ task foo(dependsOn: "bar") {
 }
 
 task readFile {
+    doLast {
+        print("Last")
+    }
     doFirst {
         File file = file(new File("foo.txt"))
         println(file)
         println(file.name)
         println(file.text)
+    }
+    doFirst {
+        println("First")
     }
 }
